@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #  Movie Recommender System using K-Means Clustering
 
 ##  Introduction
@@ -57,3 +58,6 @@ pip install -r requirements.txt
 
 # Step 3: Run the Flask app
 python app.py
+=======
+
+>>>>>>> b18b85cc91b59d165d7f8e1f1046e0738e81ab82
