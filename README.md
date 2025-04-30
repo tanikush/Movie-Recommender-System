@@ -5,7 +5,7 @@
 In today's digital world, choosing a movie from thousands of options can be overwhelming. This **Movie Recommender System** helps users by suggesting movies based on genre, vote average, and popularity using the **K-Means Clustering** algorithm. By analyzing movie metadata, the system groups similar movies together and recommends them to the user based on their preferences.
 
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Homepage  
 ![Homepage 1](screenshots/homepage_1.png)  
@@ -14,10 +14,6 @@ In today's digital world, choosing a movie from thousands of options can be over
 ### Recommendations Page  
 ![Recommendations 1](screenshots/recommend_1.png)  
 ![Recommendations 2](screenshots/recommend_2.png)
-
-### Genre Distribution Plot  
-![Genre Plot](screenshots/genre_distribution.png)
-
 
 ##  Developed By
 Tanisha Kushwah
