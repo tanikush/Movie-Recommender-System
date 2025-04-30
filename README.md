@@ -46,7 +46,7 @@ Download it here:
 
 ```bash
 # Step 1: Clone the repository
-git clone https://github.com/your-username/movie-recommender.git
+git clone https://github.com/tanikush/Movie-Recommender-System.git
 cd movie-recommender
 
 # Step 2: Install required libraries
