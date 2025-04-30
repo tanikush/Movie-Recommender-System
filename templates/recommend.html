@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Movies</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #e9eff1;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .row-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .movie-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        list-style-type: none;
+        margin: 0;
+    }
+
+    li {
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        margin: 6px 0;
+        border-radius: 6px;
+        font-size: 16px;
+        max-width: 300px;
+        text-align: left;
+        transition: background 0.3s;
+        position: relative;
+        padding-left: 30px;
+    }
+
+    li::before {
+        content: counter(movie) ". ";
+        counter-increment: movie;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+    }
+
+    li:hover {
+        background: rgb(8, 72, 140);
+    }
+
+    .error {
+        color: #d9534f;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        counter-reset: movie;
+    }
+
+    .back-container {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 100px;
+        padding-right: 90px;
+    }
+
+    .back-container a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .back-container a:hover {
+        text-decoration: underline;
+    }
+
+    .plot-container {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .plot-container img {
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        margin: 20px auto;
+    }
+    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Recommended Movies</h1>
+    
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% else %}
+            <div class="row-container">
+                <div class="movie-container">
+                    <ul>
+                        {% for movie in recommendations %}
+                            <li>{{ movie }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="back-container">
+                    <a href="/">Back to Home →</a>
+                </div>
+            </div>
+        {% endif %}
+    
+        <div class="plot-container">
+            <h2>Genre Distribution Plot</h2>
+            <img src="{{ url_for('static', filename='genre_distribution.png') }}" alt="Genre Distribution">
+        </div>
+    
+        <div class="plot-container">
+            <h2>K-Means Clustering Plot</h2>
+            <img src="{{ url_for('static', filename='kmeans_diagnostics.png') }}" alt="KMeans Plot">
+        </div>
+
+        <div class="plot-container">
+            <h2>Movies per Cluster</h2>
+            <img src="{{ url_for('static', filename='cluster_counts.png') }}" alt="Cluster Counts">
+        </div>
+    </div>
+
+</body>
+</html>

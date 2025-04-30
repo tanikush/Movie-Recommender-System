@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+            padding-top: 20px;
+        }
+        form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(8, 72, 140);
+        }
+        .genre-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommender System</h1>
+
+        <h2>Get Movie Recommendations</h2>
+        <form action="/recommend" method="POST">
+            <input type="text" name="movie_title" placeholder="Enter movie title" required>
+            <input type="submit" value="Recommend">
+        </form>
+
+        <h2>Genre Distribution</h2>
+        <img src="{{ url_for('static', filename='genre_distribution.png') }}" alt="Genre Distribution" class="genre-img">
+        
+        <h2>K-Means Clustering Plot</h2>
+        <img src="{{ url_for('static', filename=kmeans_plot) }}" alt="KMeans Plot" width="100%">
+
+        <h2>Movies per Cluster</h2>
+        <img src="{{ url_for('static', filename='cluster_counts.png') }}" alt="Cluster Counts" width="100%">
+
+    </div>
+</body>
+</html>
