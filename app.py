@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import MultiLabelBinarizer, MinMaxScaler
 from sklearn.cluster import KMeans
-import os
+import os 
 
 app = Flask(__name__)
 
